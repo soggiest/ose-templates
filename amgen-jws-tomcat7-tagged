@@ -197,7 +197,7 @@ parameters:
   value: master
 - description: Path within Git project to build; empty for root project directory.
   name: GIT_CONTEXT_DIR
-- description: Operating Environment for the app. Options: dev, test, prod, sandbox
+- description: 'Operating Environment for the app. Options: dev, test, prod, sandbox'
   name: OPERATING_ENVIRONMENT
 - description: JWS Admin User
   from: '[a-zA-Z0-9]{8}'
