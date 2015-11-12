@@ -6,10 +6,10 @@
             "description": "Application template for EAP 6 A-MQ applications built using STI.",
             "iconClass" : "icon-jboss"
         },
-        "name": "amgen-eap6-amq-source-tagged"
+        "name": "amgen-eap6-amq-source-master"
     },
     "labels": {
-        "template": "amgen-eap6-amq-source-tagged"
+        "template": "amgen-eap6-amq-source-master"
     },
     "parameters": [
         {
@@ -280,7 +280,7 @@
             "metadata": {
                 "name": "${APPLICATION_NAME}",
                 "labels": {
-                    "application": "${APPLICATION_NAME}"
+                    "app": "${APPLICATION_NAME}"
                 }
             },
             "spec": {
@@ -337,7 +337,7 @@
             "metadata": {
                 "name": "${APPLICATION_NAME}",
                 "labels": {
-                    "application": "${APPLICATION_NAME}"
+                    "app": "${APPLICATION_NAME}"
                 }
             },
             "spec": {
@@ -368,7 +368,7 @@
                         "name": "${APPLICATION_NAME}",
                         "labels": {
                             "deploymentConfig": "${APPLICATION_NAME}",
-                            "application": "${APPLICATION_NAME}"
+                            "app": "${APPLICATION_NAME}"
                         }
                     },
                     "spec": {
@@ -485,7 +485,7 @@
             "metadata": {
                 "name": "${APPLICATION_NAME}-amq",
                 "labels": {
-                    "application": "${APPLICATION_NAME}"
+                    "app": "${APPLICATION_NAME}"
                 }
             },
             "spec": {
@@ -517,7 +517,7 @@
                         "name": "${APPLICATION_NAME}-amq",
                         "labels": {
                             "deploymentConfig": "${APPLICATION_NAME}-amq",
-                            "application": "${APPLICATION_NAME}"
+                            "app": "${APPLICATION_NAME}"
                         }
                     },
                     "spec": {
