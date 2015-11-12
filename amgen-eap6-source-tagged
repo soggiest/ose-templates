@@ -9,8 +9,7 @@
         "name": "amgen-eap6-source-tagged"
     },
     "labels": {
-        "template": "amgen-eap6-source-tagged",
-        "app": "${APPLICATION_NAME}"
+        "template": "amgen-eap6-source-tagged"
     },
     "parameters": [
         {
