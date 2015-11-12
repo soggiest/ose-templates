@@ -9,8 +9,7 @@
         "name": "amgen-eap6-packaged"
     },
     "labels": {
-        "template": "amgen-eap6-packaged",
-        "app": "${APPLICATION_NAME}"
+        "template": "amgen-eap6-packaged"
     },
     "parameters": [
         {
