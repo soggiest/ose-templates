@@ -9,8 +9,7 @@
         "name": "amgen-eap6-source-master"
     },
     "labels": {
-        "template": "amgen-eap6-source-master",
-        "app": "${APPLICATION_NAME}"
+        "template": "amgen-eap6-source-master"
     },
     "parameters": [
         {
