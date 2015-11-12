@@ -199,7 +199,6 @@ parameters:
   name: GIT_CONTEXT_DIR
 - description: Operating Environment for the app. Options: dev, test, prod, sandbox
   name: OPERATING_ENVIRONMENT
-  value: ""
 - description: JWS Admin User
   from: '[a-zA-Z0-9]{8}'
   generate: expression
