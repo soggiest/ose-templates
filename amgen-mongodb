@@ -78,7 +78,7 @@
               ],
               "from": {
                 "kind": "ImageStreamTag",
-                "name": "mongodb-24-rhel7",
+                "name": "mongodb-24-rhel7:latest",
                 "namespace": "openshift"
               },
               "lastTriggeredImage": ""
