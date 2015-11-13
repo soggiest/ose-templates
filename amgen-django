@@ -83,7 +83,7 @@
             "from": {
               "kind": "ImageStreamTag",
               "namespace": "openshift",
-              "name": "python-33-rhel7"
+              "name": "python-33-rhel7:latest"
             }
           }
         },

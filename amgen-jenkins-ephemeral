@@ -2,7 +2,7 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "jenkins-ephemeral",
+    "name": "amgen-jenkins-ephemeral",
     "creationTimestamp": null,
     "annotations": {
       "description": "Jenkins service, without persistent storage. WARNING: Any data stored will be lost upon pod destruction. Only use this template for testing",

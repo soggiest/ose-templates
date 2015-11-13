@@ -2,7 +2,7 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "jenkins-persistent",
+    "name": "amgen-jenkins-persistent",
     "creationTimestamp": null,
     "annotations": {
       "description": "Jenkins service, with persistent storage.",

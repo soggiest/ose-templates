@@ -2,12 +2,12 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "amgen-mongodb",
+    "name": "amgen-postgresql",
     "creationTimestamp": null,
     "annotations": {
-      "description": "MongoDB database service, with persistent storage. Scaling to more than one replica is not supported",
-      "iconClass": "icon-mongodb",
-      "tags": "database,mongodb"
+      "description": "PostgreSQL database service, with persistent storage. Scaling to more than one replica is not supported",
+      "iconClass": "icon-postgresql",
+      "tags": "database,postgresql"
     }
   },
   "objects": [
@@ -21,10 +21,10 @@
       "spec": {
         "ports": [
           {
-            "name": "mongo",
+            "name": "postgresql",
             "protocol": "TCP",
-            "port": 27017,
-            "targetPort": 27017,
+            "port": 5432,
+            "targetPort": 5432,
             "nodePort": 0
           }
         ],
@@ -74,11 +74,11 @@
             "imageChangeParams": {
               "automatic": true,
               "containerNames": [
-                "mongodb"
+                "postgresql"
               ],
               "from": {
                 "kind": "ImageStreamTag",
-                "name": "mongodb-24-rhel7:latest",
+                "name": "postgresql-92-rhel7:latest",
                 "namespace": "openshift"
               },
               "lastTriggeredImage": ""
@@ -102,37 +102,33 @@
           "spec": {
             "containers": [
               {
-                "name": "mongodb",
-                "image": "mongodb",
+                "name": "postgresql",
+                "image": "postgresql",
                 "ports": [
                   {
-                    "containerPort": 27017,
+                    "containerPort": 5432,
                     "protocol": "TCP"
                   }
                 ],
                 "env": [
                   {
-                    "name": "MONGODB_USER",
-                    "value": "${MONGODB_USER}"
+                    "name": "POSTGRESQL_USER",
+                    "value": "${POSTGRESQL_USER}"
                   },
                   {
-                    "name": "MONGODB_PASSWORD",
-                    "value": "${MONGODB_PASSWORD}"
+                    "name": "POSTGRESQL_PASSWORD",
+                    "value": "${POSTGRESQL_PASSWORD}"
                   },
                   {
-                    "name": "MONGODB_DATABASE",
-                    "value": "${MONGODB_DATABASE}"
-                  },
-                  {
-                    "name": "MONGODB_ADMIN_PASSWORD",
-                    "value": "${MONGODB_ADMIN_PASSWORD}"
+                    "name": "POSTGRESQL_DATABASE",
+                    "value": "${POSTGRESQL_DATABASE}"
                   }
                 ],
                 "resources": {},
                 "volumeMounts": [
                   {
                     "name": "${DATABASE_SERVICE_NAME}-data",
-                    "mountPath": "/var/lib/mongodb/data"
+                    "mountPath": "/var/lib/pgsql/data"
                   }
                 ],
                 "terminationMessagePath": "/dev/termination-log",
@@ -164,34 +160,27 @@
     {
       "name": "DATABASE_SERVICE_NAME",
       "description": "Database service name",
-      "value": "mongodb",
+      "value": "postgresql",
       "required": true
     },
     {
-      "name": "MONGODB_USER",
-      "description": "Username for MongoDB user that will be used for accessing the database",
+      "name": "POSTGRESQL_USER",
+      "description": "Username for PostgreSQL user that will be used for accessing the database",
       "generate": "expression",
       "from": "user[A-Z0-9]{3}",
       "required": true
     },
     {
-      "name": "MONGODB_PASSWORD",
-      "description": "Password for the MongoDB user",
+      "name": "POSTGRESQL_PASSWORD",
+      "description": "Password for the PostgreSQL user",
       "generate": "expression",
       "from": "[a-zA-Z0-9]{16}",
       "required": true
     },
     {
-      "name": "MONGODB_DATABASE",
+      "name": "POSTGRESQL_DATABASE",
       "description": "Database name",
       "value": "sampledb",
-      "required": true
-    },
-    {
-      "name": "MONGODB_ADMIN_PASSWORD",
-      "description": "Password for the database admin user",
-      "generate": "expression",
-      "from": "[a-zA-Z0-9]{16}",
       "required": true
     },
     {
@@ -202,6 +191,6 @@
     }
   ],
   "labels": {
-    "template": "mongodb-persistent-template"
+    "template": "postgresql-persistent-template"
   }
 }
