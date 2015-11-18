@@ -105,24 +105,6 @@ objects:
     - imageChange: {}
       type: ImageChange
 - apiVersion: v1
-  kind: BuildConfig
-  metadata:
-    labels:
-      app: ${APPLICATION_NAME}
-    name: sso-${APPLICATION_NAME}
-  spec:
-    output:
-      to:
-        kind: ImageStreamTag
-        name: sso-${APPLICATION_NAME}:latest
-    strategy:
-      sourceStrategy:
-        from:
-          kind: ImageStreamTag
-          name: amgen-sso:latest
-          namespace: openshift
-      type: Source
-- apiVersion: v1
   kind: DeploymentConfig
   metadata:
     labels:
