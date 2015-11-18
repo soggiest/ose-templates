@@ -105,6 +105,24 @@ objects:
     - imageChange: {}
       type: ImageChange
 - apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    labels:
+      app: ${APPLICATION_NAME}
+    name: sso-${APPLICATION_NAME}
+  spec:
+    output:
+      to:
+        kind: ImageStreamTag
+        name: sso-${APPLICATION_NAME}:latest
+    strategy:
+      sourceStrategy:
+        from:
+          kind: ImageStreamTag
+          name: amgen-sso:latest
+          namespace: openshift
+      type: Source
+- apiVersion: v1
   kind: DeploymentConfig
   metadata:
     labels:
@@ -230,7 +248,7 @@ objects:
         - env:
           - name: PROXY_TARGET
             value: app-${APPLICATION_HOSTNAME}
-          image: registry.paas-sbox.amgen.com/openshift/amgen-sso
+          image: sso-${APPLICATION_NAME}
           imagePullPolicy: Always
           name: amgen-sso
           ports:
