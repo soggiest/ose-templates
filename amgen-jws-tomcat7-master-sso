@@ -33,7 +33,7 @@ objects:
       app: ${APPLICATION_NAME}
     name: ${APPLICATION_NAME}-${OPERATING_ENVIRONMENT}
   spec:
-    host: ${APPLICATION_HOSTNAME}:8080
+    host: app-${APPLICATION_HOSTNAME}
     to:
       name: ${APPLICATION_NAME}
 - apiVersion: v1
@@ -43,26 +43,26 @@ objects:
       description: SSO service.
     labels:
       app: ${APPLICATION_NAME}
-    name: ${APPLICATION_NAME}-SSO
+    name: SSO-${APPLICATION_NAME}
   spec:
     ports:
     - port: 8998
       targetPort: 80
     selector:
-      deploymentConfig: ${APPLICATION_NAME}
+      deploymentConfig: SSO-${APPLICATION_NAME}
 - apiVersion: v1
-  id: ${APPLICATION_NAME}-SSO
+  id: SSO-${APPLICATION_NAME}
   kind: Route
   metadata:
     annotations:
       description: Route for application's http service.
     labels:
       app: ${APPLICATION_NAME}
-    name: ${APPLICATION_NAME}-SSO
+    name: SSO-${APPLICATION_NAME}
   spec:
     host: ${APPLICATION_HOSTNAME}
     to:
-      name: ${APPLICATION_NAME}-SSO
+      name: SSO-${APPLICATION_NAME}
 - apiVersion: v1
   kind: ImageStream
   metadata:
@@ -212,7 +212,7 @@ objects:
   metadata:
     labels:
       app: ${APPLICATION_NAME}
-    name: ${APPLICATION_NAME}-SSO
+    name: SSO-${APPLICATION_NAME}
   spec:
     replicas: 1
     selector:
@@ -272,12 +272,12 @@ objects:
         labels:
           app: ${APPLICATION_NAME}
           deploymentConfig: ${APPLICATION_NAME}
-        name: ${APPLICATION_NAME}-sso
+        name: SSO-${APPLICATION_NAME}
       spec:
         containers:
         - env:
           - name: PROXY_TARGET
-            value: ${APPLICATION_HOSTNAME}
+            value: app-${APPLICATION_HOSTNAME}
           image: registry.paas-sbox.amgen.com/openshift/amgen-sso
           imagePullPolicy: Always
           name: amgen-sso
