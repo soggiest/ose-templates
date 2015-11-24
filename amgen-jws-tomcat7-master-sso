@@ -47,7 +47,7 @@ objects:
   spec:
     ports:
     - port: 8998
-      targetPort: 80
+      targetPort: 8998
     selector:
       deploymentConfig: sso-${APPLICATION_NAME}
 - apiVersion: v1
@@ -234,7 +234,7 @@ objects:
           imagePullPolicy: Always
           name: amgen-sso
           ports:
-          - containerPort: 80
+          - containerPort: 8998
             name: http
             protocol: TCP
 parameters:
