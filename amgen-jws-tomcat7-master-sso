@@ -105,6 +105,16 @@ objects:
     - imageChange: {}
       type: ImageChange
 - apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    name: sso-storage-${APPLICATION_NAME}
+  spec:
+    accessModes:
+      ReadWriteOnce
+    resources: 
+      requests: 
+        storage: 5Gi
+- apiVersion: v1
   kind: DeploymentConfig
   metadata:
     labels:
@@ -132,6 +142,13 @@ objects:
           image: ${APPLICATION_NAME}
           imagePullPolicy: Always
           name: ${APPLICATION_NAME}
+          volumeMounts:
+          - mountPath: /sso-storage
+            name: amgen-sso-storage
+      volumes:
+      - name: amgen-sso-storiage
+        persistenVolumeClaim:
+          claimName:sso-storage-${APPLICATION_NAME}
       to:
         kind: ImageStreamTag
         name: ${APPLICATION_NAME}:latest
