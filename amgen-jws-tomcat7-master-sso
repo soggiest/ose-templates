@@ -108,9 +108,11 @@ objects:
   kind: PersistentVolumeClaim
   metadata:
     name: sso-storage-${APPLICATION_NAME}
+    labels:
+      app: amgen-sso
   spec:
     accessModes:
-      ReadWriteOnce
+    - ReadWriteOnce
     resources: 
       requests: 
         storage: 5Gi
@@ -142,13 +144,6 @@ objects:
           image: ${APPLICATION_NAME}
           imagePullPolicy: Always
           name: ${APPLICATION_NAME}
-          volumeMounts:
-          - mountPath: /sso-storage
-            name: amgen-sso-storage
-      volumes:
-      - name: amgen-sso-storiage
-        persistenVolumeClaim:
-          claimName:sso-storage-${APPLICATION_NAME}
       to:
         kind: ImageStreamTag
         name: ${APPLICATION_NAME}:latest
@@ -254,6 +249,13 @@ objects:
           - containerPort: 8998
             name: http
             protocol: TCP
+        volumeMounts:
+        - mountPath: /sso-storage
+          name: amgen-sso-storage
+      volumes:
+      - name: amgen-sso-storage
+        persistenVolumeClaim:
+          claimName:sso-storage-${APPLICATION_NAME}
 parameters:
 - description: JWS Release version, e.g. 3.0, 2.1, etc.
   name: JWS_RELEASE
