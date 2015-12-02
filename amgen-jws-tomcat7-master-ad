@@ -198,7 +198,7 @@ parameters:
   name: APPLICATION_NAME
   value: jws-app
 - description: AppDynamic Account Name
-name: APPDYNAMICS_ACCOUNT_NAME
+  name: APPDYNAMICS_ACCOUNT_NAME
   value: appdynamics
 - description: AppDynamic Account Key
   name: APPDYNAMICS_ACCOUNT_ACCESS_KEY
