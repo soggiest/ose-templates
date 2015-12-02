@@ -102,15 +102,15 @@ objects:
             value: ${JWS_ADMIN_USERNAME}
           - name: JWS_ADMIN_PASSWORD
             value: ${JWS_ADMIN_PASSWORD}
-          -name: APPDYNAMICS_ACCOUNT_ACCESS_KEY
+          - name: APPDYNAMICS_ACCOUNT_ACCESS_KEY
             value: ${APPDYNAMICS_ACCOUNT_ACCESS_KEY}
-          -name: APPDYNAMICS_ACCOUNT_NAME
+          - name: APPDYNAMICS_ACCOUNT_NAME
             value: ${APPDYNAMICS_ACCOUNT_NAME}
-          -name: APPDYNAMICS_CONTROLLER_HOST
+          - name: APPDYNAMICS_CONTROLLER_HOST
             value: ${APPDYNAMICS_CONTROLLER_HOST}
-          -name: APPDYNAMICS_CONTROLLER_PORT
+          - name: APPDYNAMICS_CONTROLLER_PORT
             value: ${APPDYNAMICS_CONTROLLER_PORT}
-          -name: APPDYNAMICS_CONTROLLER_SSL_ENABLED
+          - name: APPDYNAMICS_CONTROLLER_SSL_ENABLED
             value: ${APPDYNAMICS_CONTROLLER_SSL_ENABLED}
           image: ${APPLICATION_NAME}
           imagePullPolicy: Always
