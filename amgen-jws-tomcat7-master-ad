@@ -225,9 +225,6 @@ parameters:
 - description: AppDynamic Account Key
   name: APPDYNAMICS_ACCOUNT_ACCESS_KEY
   value: 'SJ5b2m7d1$354'
-- description: AppDynamic Account Name
-  name: APPDYNAMICS_ACCOUNT_NAME
-  value: 'appdynamics'
 - description: AppDynamic Controller Host:
   name: APPDYNAMICS_CONTROLLER_HOST
   value: 'uslv-papp-dyn03'
