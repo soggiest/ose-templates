@@ -222,15 +222,18 @@ parameters:
   from: '[a-zA-Z0-9]{8}'
   generate: expression
   name: GENERIC_TRIGGER_SECRET
+- description: AppDynamic Account Name
+  name: APPDYNAMICS_ACCOUNT_NAME
+  value: "appdynamics"
 - description: AppDynamic Account Key
   name: APPDYNAMICS_ACCOUNT_ACCESS_KEY
-  value: 'SJ5b2m7d1$354'
+  value: "SJ5b2m7d1$354"
 - description: AppDynamic Controller Host:
   name: APPDYNAMICS_CONTROLLER_HOST
-  value: 'uslv-papp-dyn03'
+  value: "uslv-papp-dyn03"
 - description: AppDynamic Controller Port
   name: APPDYNAMICS_CONTROLLER_PORT
-  value: '8090'
+  value: "8090"
 - description: AppDynamics Controller SSL Enabled
   name: APPDYNAMICS_CONTROLLER_SSL_ENABLED
   value: false
